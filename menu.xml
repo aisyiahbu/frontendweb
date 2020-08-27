@@ -1,0 +1,20 @@
+<daftarMenu>
+	<menu>
+		<gambar>assets/image/bacio.jpg__240x500_q85_crop_subsampling-2_upscale.jpg</gambar>
+		<nama>Bacio</nama>
+		<deskripsi>70% Chocolate, Milk, Toasted hazelnuts, Whipped cream, Sugars</deskripsi>
+		<harga>Rp. 23.000</harga>
+	</menu>
+	<menu>
+		<gambar>assets/image/cioccolato-arancia.jpg__240x500_q85_crop_subsampling-2_upscale.jpg</gambar>
+		<nama>CHOCOLATE AND ORANGE</nama>
+		<deskripsi>Mineral water, 70% Chocolate, Sugars</deskripsi>
+		<harga>Rp. 25.000</harga>
+	</menu>
+	<menu>
+		<gambar>assets/image/pistacchio.jpg__240x500_q85_crop_subsampling-2_upscale.jpg</gambar>
+		<nama>PISTACHIO</nama>
+		<deskripsi>Mineral water, Whipped cream, Toasted pistachio nuts, Sugars</deskripsi>
+		<harga>Rp. 33.000</harga>
+	</menu>
+</daftarMenu>

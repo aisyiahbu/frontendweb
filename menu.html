@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+	<title>Gelatocious</title>
+	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="icon" type="image/png" href="assets/image/icon.png">
+
+	<script type="text/javascript" src="bootstrap-4.3.1-dist/js/jquery-3.3.1.js"></script>
+	<script type="text/javascript" src="bootstrap-4.3.1-dist/js/popper.min.js"></script>
+	<script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	
+	<div class="header-menu">
+		<div class="address">
+			<center>
+				<p>Jalan Niaga Karawang No. 4 | Open 9AM-10PM (Weekday) 9AM-11PM (Weekend) </p>
+			</center>
+		</div>
+
+		<input type="checkbox" id="nav" class="hidden">
+		<label for="nav" class="nav-btn">
+			<i></i>
+			<i></i>
+			<i></i>
+		</label>
+
+		<div class="navigation-menu">
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="">MENU</a></li>
+				<li><a href="event.html">BOOK AN EVENT</a></li>
+				<li><a href="about.html">ABOUT</a></li>
+			</ul>	
+		</div>
+
+		<div class="title-menu">
+			<h2>OUR</h2>
+			<p>MENU</p>
+		</div>
+	</div>
+
+	<section id="sec4">
+		<div class="menu-pages">
+			<center>
+				<h2>
+					GELATO MENU
+				</h2>
+				<hr style="width: 10%; border: 1.2px solid #000;margin-bottom: 50px;">
+				<div class="row mb-5" id="daftarMenu">
+					
+				</div>
+			</center>
+		</div>
+	</section>
+
+	<footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2>ADDRESS</h2>
+						<p>Jalan Niaga No. 4<br />Jawa Barat<br />Karawang</p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2>CONTACT</h2>
+						<p>gelatocious@gmail.com<br />021 898 989</p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2>HOURS</h2>
+						<p>WEEKDAY<br />9AM-10PM</p>
+						<p>WEEKEND<br />9AM-11PM</p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2>MAILING LIST</h2>
+						<input type="text" name="" placeholder="Enter your email here*">
+						<button>
+							SUBSCRIBE
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>Copyright &copy; by Coffee Lihini</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script type="text/javascript">
+		$(document).ready(function()  {
+			$.ajax({
+				url: 'menu.xml',
+				beforeSend: function(){
+					$('#daftarMenu').html('Memuat data ...')
+				},
+				success: function(res){
+					$('#daftarMenu').html('')
+
+					var xml = $(res).find('menu')
+
+					for (var i = 0; i < xml.length; i++){
+						var menu = xml.eq(i)
+
+						$('#daftarMenu').append('<div class="col-md"><div class="ftco-footer-widget mb-4" ><img src="' + menu.find('gambar').html() + '"><h4>' + menu.find('nama').html() + '</h4><hr style="width: 80%; background-color: #000; border: 1px solid #000;margin-bottom: -30px;"><p>' + menu.find('deskripsi').html() + '</p><h4>' + menu.find('harga').html() + '</h4></div></div>')
+					}
+				}
+			})
+		})
+	</script>
+
+</body>
+</html>
